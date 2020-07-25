@@ -1,1 +1,0 @@
-web: python manage.py collectstatic --noinput; gunicorn personal.wsgi --log-file - --log-level debug
