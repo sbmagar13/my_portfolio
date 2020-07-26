@@ -51,7 +51,7 @@ C:\portfolio\django>scripts\activate.bat
 ###### Congrats! everything is setup. Your project ready to deploy in heroku for live your project online.
 ```
 Get any error, send me the scrrenshot at my inbox, i will try to give you the solution.
-Facebook: https://facebook.com/Nasim.nimu2011
+Facebook: https://facebook.com/nasimnimu007
 Email: nasim.mahmud.1996@gmail.com
 Phone: 01777-424142
 ```
