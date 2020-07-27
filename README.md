@@ -14,7 +14,7 @@ In deploy method, select github. connect your repository and start deploy. that'
 ```
 
 # Local Development:
-###### Download or clone master stable branch 'add-migrations'. Goto project root folder.
+###### Download or clone the stable branch 'add-migrations'. Goto project root folder.
 
 ```
 C:\>git clone https://github.com/nasim-007/portfolio.git
