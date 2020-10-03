@@ -29,6 +29,9 @@ urlpatterns = [
     
 ]
 
+urlpatterns.append(url(f'^{settings.MEDIA_URL.lstrip("/")}(?P<path>.*)$',
+                     mediaserve, {'document_root': settings.MEDIA_ROOT}))
+
 urlpatterns += staticfiles_urlpatterns()
 
 if settings.DEBUG:
