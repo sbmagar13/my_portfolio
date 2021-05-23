@@ -40,7 +40,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'f^v0$q1l)3e*36&f$ctpu_lki)ou2v
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://nasimportfolio.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['*', ]
 
 
 # Application definition
@@ -58,14 +58,14 @@ INSTALLED_APPS = [
     'blogs',
     'works',
     'django_summernote',
-   
-    
+
+
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
-   
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -73,7 +73,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-   
+
 ]
 
 ROOT_URLCONF = 'personal.urls'
@@ -103,12 +103,12 @@ WSGI_APPLICATION = 'personal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'personal_db',
-        'USER': 'nasim',
-        'PASSWORD': 'Your password',
+        'NAME': 'portfolio_db',
+        'USER': 'sagar',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
-        'PORT': '2000',
-        
+        'PORT': '5433',
+
     }
 }
 
