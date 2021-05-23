@@ -34,7 +34,7 @@ Description: Portfolio/CV/Resume HTML Template
 */
 @import url("https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=cyrillic");
 /*=================================================================*/
-/*                      BASE                              
+/*                      BASE
 /*=================================================================*/
 * {
   margin: 0;
@@ -79,7 +79,7 @@ img {
 }
 
 /*=================================================================*/
-/*                      TYPOGRAPHY                              
+/*                      TYPOGRAPHY
 /*=================================================================*/
 h1, h2, h3, h4, h5, h6 {
   color: #454360;
@@ -147,7 +147,7 @@ pre {
 }
 
 /*=================================================================*/
-/*                      PRELOADER                              
+/*                      PRELOADER
 /*=================================================================*/
 .infinity {
   width: 120px;
@@ -326,7 +326,7 @@ pre {
 }
 
 /*=================================================================*/
-/*                      HEADER                              
+/*                      HEADER
 /*=================================================================*/
 header.desktop-header-1 {
   color: #FFF;
@@ -772,7 +772,7 @@ header.mobile-header-2 .site-logo img {
 }
 
 /*=================================================================*/
-/*                      SECTIONS                             
+/*                      SECTIONS
 /*=================================================================*/
 main.content {
   margin-left: 290px;
@@ -851,6 +851,7 @@ section.home.light .social-icons li a:hover {
 
 .section-title {
   font-size: 36px;
+  color: #ffffff;
   margin: 0;
   margin-left: 14px;
   position: relative;
@@ -867,7 +868,7 @@ section.home.light .social-icons li a:hover {
 }
 
 /*=================================================================*/
-/*                      PARALLAX SHAPES                              
+/*                      PARALLAX SHAPES
 /*=================================================================*/
 .parallax {
   position: absolute;
@@ -925,10 +926,11 @@ section.home.light .social-icons li a:hover {
 }
 
 /*=================================================================*/
-/*                      SKILLS                              
+/*                      SKILLS
 /*=================================================================*/
 .skill-item .skill-info h4 {
   font-size: 16px;
+  color: #000000;
   font-weight: 500;
 }
 .skill-item .skill-info span {
@@ -936,7 +938,7 @@ section.home.light .social-icons li a:hover {
 }
 
 /*=================================================================*/
-/*                      SERVICE                              
+/*                      SERVICE
 /*=================================================================*/
 .service-box {
   -webkit-transform: translateY(0);
@@ -959,7 +961,7 @@ section.home.light .social-icons li a:hover {
 }
 
 /*=================================================================*/
-/*                      PORTFOLIO                              
+/*                      PORTFOLIO
 /*=================================================================*/
 .portfolio-wrapper [class*=col-] {
   margin-top: 15px;
@@ -1097,7 +1099,7 @@ select.portfolio-filter-mobile {
 }
 
 /*=================================================================*/
-/*                      FACTS                              
+/*                      FACTS
 /*=================================================================*/
 .fact-item .details {
   margin-left: 60px;
@@ -1118,7 +1120,7 @@ select.portfolio-filter-mobile {
 }
 
 /*=================================================================*/
-/*                      PRICES                              
+/*                      PRICES
 /*=================================================================*/
 .price-item {
   padding: 30px 40px;
@@ -1173,7 +1175,7 @@ select.portfolio-filter-mobile {
 }
 
 /*=================================================================*/
-/*                      TESTIMONIALS                              
+/*                      TESTIMONIALS
 /*=================================================================*/
 .testimonials-wrapper {
   max-width: 700px;
@@ -1198,7 +1200,7 @@ select.portfolio-filter-mobile {
 }
 
 /*=================================================================*/
-/*                      BLOG                              
+/*                      BLOG
 /*=================================================================*/
 .blog-item {
   overflow: hidden;
@@ -1277,7 +1279,7 @@ select.portfolio-filter-mobile {
 }
 
 /*=================================================================*/
-/*                      CLIENTS                              
+/*                      CLIENTS
 /*=================================================================*/
 .client-item {
   min-height: 50px;
@@ -1300,7 +1302,7 @@ select.portfolio-filter-mobile {
 }
 
 /*=================================================================*/
-/*                      CONTACT                              
+/*                      CONTACT
 /*=================================================================*/
 .contact-info {
   background-image: url("../images/map.svg");
@@ -1314,7 +1316,7 @@ select.portfolio-filter-mobile {
 }
 
 /*=================================================================*/
-/*                      HELPER                              
+/*                      HELPER
 /*=================================================================*/
 .help-block.with-errors {
   color: red;
@@ -1458,7 +1460,7 @@ footer.footer {
   text-align: center;
 }
 footer.footer .copyright {
-  color: #9C9AB3;
+  color: #000000;
   font-size: 14px;
 }
 footer.footer.light {
@@ -1467,7 +1469,7 @@ footer.footer.light {
 }
 
 /*=================================================================*/
-/*                      DARK MODE                              
+/*                      DARK MODE
 /*=================================================================*/
 body.dark {
   color: #FFF;
