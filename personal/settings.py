@@ -38,7 +38,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'f^v0$q1l)3e*36&f$ctpu_lki)ou2v
 # DEBUG = True
 
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*', ]
 
@@ -154,7 +154,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # MEDIA_ROOT = '/vol/web/media'
 
 # Activate Django-Heroku.
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
