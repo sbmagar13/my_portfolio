@@ -181,7 +181,7 @@
 .timeline.edu .timeline-container::after {
     content: '\e019';
     background: #FFF;
-    font-family: 'simple-line-icons';
+  font-family: 'simple-line-icons', serif;
     font-size: 24px;
     color: $colorpink;
     position: absolute;
@@ -193,7 +193,7 @@
 .timeline.exp .timeline-container::after {
     content: '\e04b';
     background: #FFF;
-    font-family: 'simple-line-icons';
+    font-family: 'simple-line-icons', serif;
     font-size: 24px;
     color: $colorpink;
     position: absolute;
