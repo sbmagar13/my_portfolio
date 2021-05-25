@@ -1,0 +1,54 @@
+version: '3.7'
+
+services:
+    app:
+        build: .
+        command: >
+          sh -c "python3 manage.py migrate &&
+              python3 manage.py runserver 0.0.0.0:8000"
+        volumes:
+            - static_data:/vol/web
+        ports:
+            - "8000:8000"
+#        restart: always
+#        env_file:
+#            - .env
+        environment:
+            - DB_HOST:app-db
+            - DB_NAME:portfolio_db
+            - DB_USER:sagar
+            - DB_PASS:password
+        depends_on:
+            - app-db
+
+    app-db:
+        image: postgres:12-alpine
+        ports:
+            - "5433:5433"
+        restart: always
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+#        env_file:
+#            - .env
+
+        environment:
+            - POSTGRES_HOST_AUTH_METHOD=trust
+            - POSTGRES_DB:app
+            - POSTGRES_USER:sagar
+            - POSTGRES_PASSWORD:password
+#            - TZ:Asia/Kathmandu
+
+    proxy:
+        build: ./proxy
+        volumes:
+            - static_data:/vol/static
+        restart: always
+        ports:
+            - "80:80"
+        depends_on:
+            - app
+
+
+volumes:
+    static_data:
+    postgres_data:
