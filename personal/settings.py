@@ -63,7 +63,7 @@ INSTALLED_APPS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
-
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -100,8 +100,8 @@ WSGI_APPLICATION = 'personal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'portfolio_db', # os.environ.get("POSTGRES_DB"),
-        'USER': 'sagar', # os.environ.get("POSTGRES_USER"),
+        'NAME': 'portfolio_db',  # os.environ.get("POSTGRES_DB"),
+        'USER': 'sagar',  # os.environ.get("POSTGRES_USER"),
         'PASSWORD': 'password',  # os.environ.get("POSTGRES_PASSWORD"),
         'HOST': 'localhost',  # os.environ.get("POSTGRES_HOST"),
         'PORT': '5433',
@@ -155,6 +155,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Activate Django-Heroku.
 # django_heroku.settings(locals())
-#
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 SUMMERNOTE_THEME = 'bs4'
+
+import dj_database_url
+
+prod_db = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
