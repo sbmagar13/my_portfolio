@@ -10,11 +10,9 @@ from django.db.models import Q
    
 # Create your views here.
 
+
 def blog_index(request):
     posts = Post.objects.filter(status=1).order_by('-created_on')
-   
-    
-
     paginator = Paginator(posts, 3)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -23,7 +21,6 @@ def blog_index(request):
         'page_obj': page_obj,
     }
     return render(request, "blog_index.html", context)
-
 
 
 def blog_category(request, category_post):
@@ -82,9 +79,7 @@ def blog_detail(request, pk):
             return HttpResponseRedirect(reverse('blog_detail', args=(post.pk,)))
     else:
         comment_form = CommentForm()
-    
-    
-    
+
     context = {
         "post": post,
         "comments": comments,
