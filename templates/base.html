@@ -57,7 +57,66 @@
     background: #FF4C60;
 }
 
+/* toggle menu */
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: 0;
+}
 
+.navbar-toggler span {
+   display: block;
+   background-color: #ffffff;
+   height: 3px;
+   width: 25px;
+   margin-top: 4px;
+   margin-bottom: 4px;
+   -webkit-transform: rotate(0deg);
+   -moz-transform: rotate(0deg);
+   -o-transform: rotate(0deg);
+   transform: rotate(0deg);
+   position: relative;
+   left: 0;
+   opacity: 1;
+}
+
+.navbar-toggler span:nth-child(1),
+.navbar-toggler span:nth-child(3) {
+   -webkit-transition: transform .35s ease-in-out;
+   -moz-transition: transform .35s ease-in-out;
+   -o-transition: transform .35s ease-in-out;
+   transition: transform .35s ease-in-out;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(1) {
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+    opacity: 0.9;
+    /*transition-delay:0.1s;*/
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(2) {
+    height: 12px;
+    visibility: hidden;
+    background-color: transparent;
+    /*transition-delay:0.3s;*/
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(3) {
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    opacity: 0.9;
+    /*transition-delay:0.2s;*/
+}
 
 
 </style>
@@ -102,9 +161,14 @@
     <div class="container">
 
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="/"><img src="/static/images/logo-sagar2.svg" alt="Sagar" /></a> <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNavDropdown" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+            <a class="navbar-brand" href="/"><img src="/static/images/logo-sagar2.svg" alt="Sagar" /></a>
+            <button class="navbar-toggler navbar-toggler-right collapsed" aria-controls="navbarNavDropdown" aria-expanded="false" data-target="#navbarNavDropdown" data-toggle="collapse" type="button">
+                <span> </span>
+                <span> </span>
+                <span> </span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav ml-auto scrollspy">
+                <ul class="navbar-nav mr-auto scrollspy">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
@@ -119,6 +183,11 @@
     </div>
 
 </header>
+<script>
+    $('.navbar-nav li a').on('click', function(){
+        $('.navbar-collapse').collapse('hide');
+        });
+</script>
 
 <!-- BEGIN OF page cover -->
 <div class="hh-cover page-cover">
@@ -137,14 +206,15 @@
 
 <div class="spacer" data-height="96"></div>
 
-    <footer class="footer light">
-        <div class="container">
-            <span class="copyright">© 2021 Sagar Budhathoki.</span>
-        </div>
-    </footer>
+<footer class="footer dark">
+    <div class="container">
+        <span class="copyright">© 2021 Sagar Budhathoki.</span>
+    </div>
+</footer>
 
 
 <a href="javascript:" id="return-to-top"><i class="icofont-hand-drawn-up icofont-6x"></i></a>
+
 
 <!-- SCRIPTS -->
 <script src="/static/js/jquery-1.12.3.min.js"></script>
@@ -166,6 +236,12 @@
 <script src="/static/js/custom.js"></script>
 <script src="/static/js/particlejs/particles.min.js"></script>
 <script src="/static/js/particlejs/particles-init.js"></script>
+
+<script>
+    $(document).on('click', function(){
+        $('.navbar-collapse').collapse('hide');
+        });
+</script>
 
 </body>
 </html>
