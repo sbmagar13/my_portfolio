@@ -25,9 +25,9 @@ def home(request):
     # if a GET (or any other method) we'll create a blank form
     else:
         form = ContactForm()
-    
-    
+
     return render(request, 'index.html', {'form': form, 'posts': posts, 'works': works})
+
 
 def thanks(request):
     contacts = Contact.objects.all().order_by('-created')[:1]
