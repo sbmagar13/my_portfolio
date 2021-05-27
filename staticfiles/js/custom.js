@@ -224,6 +224,16 @@ $(window).on('load', function() {
     };
 });
 
+
+// Jquery for click outside toggle menu collapsible
+
+$(document).on('click', function(){
+    $('.navbar-collapse').collapse('hide');
+    });
+
+/* end of toggle collapsible */
+
+
 $(document).on('ready', function() {
     "use strict";
 

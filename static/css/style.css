@@ -522,7 +522,7 @@ header.desktop-header-2 .vertical-menu li {
   list-style: none;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 header.desktop-header-2 .vertical-menu li a:hover {
   color: #FFD15C;
@@ -732,6 +732,7 @@ header.mobile-header-2 .site-logo img {
 .desktop-header-3 .nav-link:hover {
   color: #FFD15C !important;
 }
+
 .desktop-header-3 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -752,7 +753,6 @@ header.mobile-header-2 .site-logo img {
 }
 .desktop-header-3 button.navbar-toggler:focus {
   outline: 0;
-  outline: 0;
 }
 .desktop-header-3 .navbar-nav li:not(:last-child) {
   padding-right: 3rem;
@@ -770,6 +770,70 @@ header.mobile-header-2 .site-logo img {
 .desktop-header-3.light .navbar-dark .navbar-nav .nav-link {
   color: #ffffff;
 }
+
+
+/* toggle menu */
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: 0;
+}
+
+.navbar-toggler span {
+   display: block;
+   background-color: #ffffff;
+   height: 3px;
+   width: 25px;
+   margin-top: 4px;
+   margin-bottom: 4px;
+   -webkit-transform: rotate(0deg);
+   -moz-transform: rotate(0deg);
+   -o-transform: rotate(0deg);
+   transform: rotate(0deg);
+   position: relative;
+   left: 0;
+   opacity: 1;
+}
+
+.navbar-toggler span:nth-child(1),
+.navbar-toggler span:nth-child(3) {
+   -webkit-transition: transform .35s ease-in-out;
+   -moz-transition: transform .35s ease-in-out;
+   -o-transition: transform .35s ease-in-out;
+   transition: transform .35s ease-in-out;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(1) {
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+    opacity: 0.9;
+    /*transition-delay:0.1s;*/
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(2) {
+    height: 12px;
+    visibility: hidden;
+    background-color: transparent;
+    /*transition-delay:0.3s;*/
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(3) {
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    opacity: 0.9;
+    /*transition-delay:0.2s;*/
+}
+
 
 /*=================================================================*/
 /*                      SECTIONS
@@ -1463,7 +1527,7 @@ footer.footer {
   text-align: center;
 }
 footer.footer .copyright {
-  color: #000000;
+  color: #ffffff;
   font-size: 14px;
 }
 footer.footer.light {
