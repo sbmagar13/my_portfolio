@@ -6,23 +6,21 @@ from django.urls import reverse
 from works.models import Work, Category_work
 from django.views.generic import ListView
 from django.db.models import Q
-   
+
+
 # Create your views here.
 
 def work_index(request):
     works = Work.objects.filter(status=1).order_by('-created_on')
-   
-    
 
     paginator = Paginator(works, 6)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    
+
     context = {
         'page_obj': page_obj,
     }
     return render(request, "work_index.html", context)
-
 
 
 def work_category(request, category_work):
@@ -31,25 +29,24 @@ def work_category(request, category_work):
     ).order_by(
         '-created_on'
     )
-    
+
     paginator = Paginator(works, 3)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
     context = {
         "category_work": category_work,
-         "page_obj": page_obj,
+        "page_obj": page_obj,
     }
     return render(request, "work_category.html", context)
 
 
 def work_detail(request, pk):
-    
     work = Work.objects.get(pk=pk)
-    
+
     work.visit_num += 1
     work.save()
-    
+
     '''
     comments = post.comments.filter(active=True, parent__isnull=True)
     if request.method == 'POST':
@@ -84,7 +81,7 @@ def work_detail(request, pk):
         comment_form = CommentForm()
     
     '''
-    
+
     context = {
         "work": work,
     }
