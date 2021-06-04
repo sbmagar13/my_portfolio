@@ -171,7 +171,7 @@
         <!-- Author -->
         <p class="lead">
           The post is written by:
-          <a href="#">{{ post.author.last_name }}{{ post.author.first_name }}</a>
+          <a href="/" style="color: black;">{{ post.author.first_name }} {{ post.author.last_name }}</a>
         </p>
 
         <hr>
@@ -209,7 +209,7 @@
 
                   <h5>Write your comment</h5>
 
-                     <form action="." method="post" style="margin-top: 1.3em">
+                     <form action="" method="post" style="margin-top: 1.3em">
                            {{ comment_form | crispy }}
                            {% csrf_token %}
                          <button type="submit" class="btn btn-default">submit</button>
@@ -262,42 +262,42 @@
               <div class="col-lg-6">
                 <ul class="list-unstyled mb-0">
                   <li>
-                    <a href="/ai-ml">AI-ML</a>
+                    <a href="/blogs/ai-ml">AI-ML</a>
                   </li>
                   <!-- <li>
                     <a href="/web-development">Web Development</a>
                   </li> -->
                   <li>
-                    <a href="/django">Django</a>
+                    <a href="/blogs/django">Django</a>
                   </li>
 
                   <li>
-                    <a href="/python">Python</a>
+                    <a href="/blogs/python">Python</a>
                   </li>
 
                   <li>
-                    <a href="/javascript">JavaScript</a>
+                    <a href="/blogs/javascript">JavaScript</a>
                   </li>
                 </ul>
               </div>
               <div class="col-lg-6">
                 <ul class="list-unstyled mb-0">
                   <li>
-                    <a href="/data-science">Data Science</a>
+                    <a href="/blogs/data-science">Data Science</a>
                   </li>
                   <li>
-                    <a href="/nlp">NLP</a>
+                    <a href="/blogs/nlp">NLP</a>
                   </li>
                   <li>
-                    <a href="/devops">DevOps</a>
-                  </li>
-
-                  <li>
-                    <a href="/aws">AWS</a>
+                    <a href="/blogs/devops">DevOps</a>
                   </li>
 
                   <li>
-                    <a href="/others">others</a>
+                    <a href="/blogs/aws">AWS</a>
+                  </li>
+
+                  <li>
+                    <a href="/blogs/others">others</a>
                   </li>
 <!--
                   <li>

@@ -42,9 +42,11 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'f^v0$q1l)3e*36&f$ctpu_lki)ou2v
 # DEBUG = True
 
 
-DEBUG = False
+DEBUG = int(os.environ.get("DEBUG", default=0))
 
-ALLOWED_HOSTS = ['https://sbmagar.herokuapp.com/', '127.0.0.1', 'localhost']
+# ALLOWED_HOSTS = ['https://sbmagar.herokuapp.com/', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(' ')
+
 
 # Application definition
 
@@ -105,12 +107,12 @@ WSGI_APPLICATION = 'personal.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'portfolio_db',  # os.environ.get("POSTGRES_DB"),
-        'USER': 'sagar',  # os.environ.get("POSTGRES_USER"),
-        'PASSWORD': 'password',  # os.environ.get("POSTGRES_PASSWORD"),
-        'HOST': 'localhost',  # os.environ.get("POSTGRES_HOST"),
-        'PORT': '5433',
+        'ENGINE': os.environ.get("DB_ENGINE", "django.db.backends.sqlite3"),
+        'NAME': os.environ.get("POSTGRES_DB", os.path.join(BASE_DIR, "db.sqlite3")),
+        'USER': os.environ.get("POSTGRES_USER", "sagar"),
+        'PASSWORD': os.environ.get("POSTGRES_PASSWORD", "password"),
+        'HOST': os.environ.get("POSTGRES_HOST", "localhost"),
+        'PORT': os.environ.get("POSTGRES_PORT", "5432"),
 
     }
 }
@@ -178,5 +180,3 @@ django_heroku.settings(locals())
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 SUMMERNOTE_THEME = 'bs4'
-
-
