@@ -7,7 +7,7 @@ ENV PYTHONNUNBUFFERED 1
 RUN apk update
 RUN apk add postgresql-dev gcc python3-dev musl-dev libc-dev linux-headers
 
-RUN apk add jpeg-dev zlib-dev
+RUN apk add jpeg-dev zlib-dev libjpeg
 
 RUN pip install --upgrade pip
 COPY ./requirements.txt .

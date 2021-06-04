@@ -125,7 +125,7 @@
 					<div class="blog-item rounded bg-white shadow-dark wow fadeIn">
 						<div class="thumb">
 							{% for category_work in work.categories.all %}
-                            <a href="{% url 'work_category' category_work.name %}">
+                            <a href="{% url 'work_category' category_work.slug %}">
 								<span class="category">{{ category_work.name }}</span>
 							</a>
 							{% endfor %}
