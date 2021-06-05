@@ -1,2 +1,2 @@
 # my_portfolio
-Personal portfolio and blogging site with django, js, html/css, scss, tcl...
+Personal portfolio and blogging site with django.
