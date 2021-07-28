@@ -920,6 +920,7 @@ section.home.light .social-icons li a:hover {
   margin: 0;
   margin-left: 14px;
   position: relative;
+  text-align: center;
 }
 .section-title:before {
   content: "";
