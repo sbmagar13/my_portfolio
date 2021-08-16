@@ -209,32 +209,32 @@
        <ul class="social-icons list-inline mb-0 mt-4">
         <li>SHARE : </li>
                           <li class="list-inline-item">
-                              <a href="mailto:?subject={{ post.title }}&amp;body=Check out this article {{ request.build_absolute_uri }}" target="_blank">
+                              <a href="mailto:?subject={{ post.title }}&amp;body=Check out this article {{ request.build_absolute_uri }}{{request.get_absolute_url}}" target="_blank">
                               <i class="icofont-email"></i>
                               </a>
                           </li>
                           <li class="list-inline-item">
-                              <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri }}"  target="_blank">
+                              <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri }}{{request.get_absolute_url}}"  target="_blank">
                               <i class="icofont-linkedin"></i>
                               </a>
                           </li>
                           <li class="list-inline-item">
-                              <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">
+                              <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}{{request.get_absolute_url}}" target="_blank">
                               <i class="icofont-facebook"></i>
                               </a>
                           </li>
                           <li class="list-inline-item">
-                              <a href="http://twitter.com/share?text={{ post.title }}. &url={{ request.get_absolute_uri }}" target="_blank">
+                              <a href="http://twitter.com/share?text={{ post.title }}. &url={{ request.build_absolute_uri }}{{request.get_absolute_url}}" target="_blank">
                               <i class="icofont-twitter"></i>
                               </a>
                           </li>
                           <li class="list-inline-item">
-                              <a href="https://api.whatsapp.com/send?text={{ request.build_absolute_uri }}" target="_blank">
+                              <a href="https://api.whatsapp.com/send?text={{ request.build_absolute_uri }}{{request.get_absolute_url}}" target="_blank">
                                   <i class="icofont-whatsapp"></i>
                               </a>
                           </li>
                           <li class="list-inline-item">
-                              <a href="https://telegram.me/share/url?url={{ request.build_absolute_uri }}&text={{ post.title }}" target="_blank">
+                              <a href="https://telegram.me/share/url?url={{ request.build_absolute_uri }}{{request.get_absolute_url}}&text={{ post.title }}" target="_blank">
                                   <i class="icofont-telegram"></i>
                               </a>
                           </li>
