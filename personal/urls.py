@@ -22,6 +22,10 @@ from django.conf.urls.static import static
 from django.views.static import serve as mediaserve
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+from django.views.generic.base import RedirectView
+
+from django.contrib.staticfiles.storage import staticfiles_storage
+
 
 urlpatterns = [
         path('admin/', admin.site.urls),
@@ -29,6 +33,7 @@ urlpatterns = [
         path('blogs/', include('blogs.urls')),
         path('works/', include('works.urls')),
         path('summernote/', include('django_summernote.urls')),
+        path("ads.txt", RedirectView.as_view(url=staticfiles_storage.url("ads.txt")),),
 ]
 
 urlpatterns.append(url(f'^{settings.MEDIA_URL.lstrip("/")}(?P<path>.*)$',
