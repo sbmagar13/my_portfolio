@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="/static/css/animate.css" type="text/css" media="all">
 	<link rel="stylesheet" href="/static/css/magnific-popup.css" type="text/css" media="all">
 	<link rel="stylesheet" href="/static/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/static/css/icofont.min.css" type="text/css" media="all">
 
 
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -202,8 +203,45 @@
         </div>
 
         <hr>
-       </div>
+       
 
+
+       <ul class="social-icons list-inline mb-0 mt-4">
+        <li>SHARE : </li>
+                          <li class="list-inline-item">
+                              <a href="mailto:?subject={{ post.title }}&amp;body=Check out this article {{ request.build_absolute_uri }}" target="_blank">
+                              <i class="icofont-email"></i>
+                              </a>
+                          </li>
+                          <li class="list-inline-item">
+                              <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri }}"  target="_blank">
+                              <i class="icofont-linkedin"></i>
+                              </a>
+                          </li>
+                          <li class="list-inline-item">
+                              <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">
+                              <i class="icofont-facebook"></i>
+                              </a>
+                          </li>
+                          <li class="list-inline-item">
+                              <a href="http://twitter.com/share?text={{ post.title }}. &url={{ request.build_absolute_uri }}" target="_blank">
+                              <i class="icofont-twitter"></i>
+                              </a>
+                          </li>
+                          <li class="list-inline-item">
+                              <a href="https://api.whatsapp.com/send?text={{ request.build_absolute_uri }}" target="_blank">
+                                  <i class="icofont-whatsapp"></i>
+                              </a>
+                          </li>
+                          <li class="list-inline-item">
+                              <a href="https://telegram.me/share/url?url={{ request.build_absolute_uri }}&text={{ post.title }}" target="_blank">
+                                  <i class="icofont-telegram"></i>
+                              </a>
+                          </li>
+        </ul>
+
+       
+      </div>
 
         <div class="card-body">
         {% load crispy_forms_tags %}
@@ -315,12 +353,13 @@
 
         <!-- Side Widget -->
           <div class="card-body">
-          <h5 class="card-header">Side contents</h5>
-          <div class="card-body">
-        	Similar blog posts will be shown here.
+            <h5 class="card-header">Similar contents</h5>
+          
+            <div class="card-body">
+              ...
+            </div>
+          
           </div>
-          </div>
-
       </div>
 
     </div>

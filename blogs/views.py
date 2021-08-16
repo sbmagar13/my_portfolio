@@ -8,7 +8,7 @@ from blogs.models import Post, Category_post, Comment
 from django.views.generic import ListView
 from django.db.models import Q
 
-# Create your views here.
+import random
 
 
 def blog_index(request):
@@ -42,7 +42,6 @@ def blog_category(request, category_post):
 
 
 def blog_detail(request, pk):
-
     post = Post.objects.get(pk=pk)
 
     post.visit_num += 1
