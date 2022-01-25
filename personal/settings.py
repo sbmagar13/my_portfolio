@@ -65,6 +65,8 @@ INSTALLED_APPS = [
     'django_summernote',
     'cloudinary',
     'cloudinary_storage',
+    'taggit',
+    'django.contrib.sitemaps',
 
 ]
 
@@ -112,6 +114,7 @@ DATABASES = {
         'USER': os.environ.get("POSTGRES_USER", "sagar"),
         'PASSWORD': os.environ.get("POSTGRES_PASSWORD", "password"),
         'HOST': os.environ.get("POSTGRES_HOST", "localhost"),
+        # 'HOST': os.environ.get("localhost"),
         'PORT': os.environ.get("POSTGRES_PORT", "5432"),
 
     }
@@ -146,7 +149,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/

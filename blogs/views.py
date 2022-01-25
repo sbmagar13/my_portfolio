@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.test import tag
 from .forms import CommentForm
 from django.urls import reverse
 from blogs.models import Post, Category_post, Comment
@@ -9,41 +10,48 @@ from django.views.generic import ListView
 from django.db.models import Q
 
 import random
+from taggit.models import Tag
+from django.db.models import Count
 
 
-def blog_index(request):
-    posts = Post.objects.filter(status=1).order_by('-created_on')
+def blog_index(request, tag_slug=None):
+    posts = Post.objects.filter(status=1).order_by('-publish')
+
+    tag=None
+
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        posts = posts.filter(tags__in=[tag])
+
     paginator = Paginator(posts, 3)
     page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    try:
+        page_obj = paginator.page(page_number)
+
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+    # page_obj = paginator.get_page(page_number)
 
     context = {
+        'page_number': page_number,
         'page_obj': page_obj,
+        'tag': tag
     }
     return render(request, "blog_index.html", context)
 
 
-def blog_category(request, category_post):
-    posts = Post.objects.filter(
-        categories__name__contains=category_post
-    ).order_by(
-        '-created_on'
-    )
+########################################################################
 
-    paginator = Paginator(posts, 3)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-
-    context = {
-        "category_post": category_post,
-         "page_obj": page_obj,
-    }
-    return render(request, "blog_category.html", context)
-
-
-def blog_detail(request, pk):
-    post = Post.objects.get(pk=pk)
-
+def blog_detail(request, year, month, day, post):
+    post = get_object_or_404(Post, slug=post,
+                                   status=1,
+                                   publish__year=year,
+                                   publish__month=month,
+                                   publish__day=day)
+    
     post.visit_num += 1
     post.save()
 
@@ -75,14 +83,62 @@ def blog_detail(request, pk):
             new_comment.post = post
             # save
             new_comment.save()
-            return HttpResponseRedirect(reverse('blog_detail', args=(post.pk,)))
+            return HttpResponseRedirect(reverse('blog_detail', args={year:post.publish.year,
+                                                                     month:post.publish.month,
+                                                                     day:post.publish.day,
+                                                                     post:post.slug,
+                                                                    }))
+    
     else:
         comment_form = CommentForm()
 
+    post_tags_ids = post.tags.values_list('id', flat=True)
+    similar_posts = Post.published.filter(tags__in=post_tags_ids).exclude(id=post.id)
+    similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publish')[:3]
+    
     context = {
         "post": post,
         "comments": comments,
-        "comment_form": comment_form
+        "comment_form": comment_form,
+        "similar_posts": similar_posts
     }
 
+
     return render(request, "blog_detail.html", context)
+
+
+########################################################################
+
+
+def blog_category(request, category_post, tag_slug=None):
+    posts = Post.objects.filter(
+        categories__name__contains=category_post
+    ).order_by(
+        '-created_on'
+    )
+
+    tag=None
+
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        posts = posts.filter(tags__in=[tag])
+
+    paginator = Paginator(posts, 3)
+    page_number = request.GET.get('page')
+    try:
+        page_obj = paginator.page(page_number)
+
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+
+    context = {
+        "category_post": category_post,
+        "page_number": page_number,
+        "page_obj": page_obj,
+        "tag": tag,
+    }
+    return render(request, "blog_category.html", context)
+

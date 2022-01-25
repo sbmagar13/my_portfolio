@@ -692,13 +692,12 @@
 
 			<div class="spacer" data-height="60"></div>
 
+			
+
 			<div class="row blog-wrapper">
 
-				  {% for post in posts %}
+				{% for post in posts %}
 
-				<div>
-
-        </div>
 				<div class="col-md-4 " style="margin-top:10px">
 					<!-- blog item -->
 					<div class="blog-item rounded bg-white shadow-dark wow fadeIn">
@@ -708,16 +707,17 @@
 								<span class="category">{{ category_post.name }}</span>
 							</a>
 							{% endfor %}
-                            <a href="{% url 'blog_detail' post.pk %}">
+                            <a href="{{ post.get_absolute_url }}">
 								<!-- <img src="/static/images/blog/default.png" alt="blog-title" /> -->
 								<img src="{{ post.image.url }}" alt="blog-title" />
 							</a>
 						</div>
 						<div class="details">
-							<h4 class="my-0 title"><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h4>
+							<h4 class="my-0 title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
 							<p class="my-0 title"><a href="{% url 'work_detail' post.pk %}">{{ post.short_desciption }}</a></p>
 							<ul class="list-inline">
-								<li class="list-inline-item"><i class="icofont-user"></i> {{post.author.last_name }}</li>
+								<li class="list-inline-item"><i class="icofont-tags"></i>{{ post.tags.all|join:", " }}</li>
+								<li class="list-inline-item"><i class="icofont-user"></i> {{post.author }}</li>
 								<li class="list-inline-item"><i class="icofont-clock-time"></i> {{ post.created_on | timesince }}</li>
 
 								<li class="list-inline-item"><i class="icofont-eye"></i> {{ post.visit_num }}</li>
@@ -734,10 +734,6 @@
 
                 </div>
                 {% endfor %}
-
-
-
-
 
 			</div>
 
