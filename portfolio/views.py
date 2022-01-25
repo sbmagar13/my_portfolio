@@ -18,7 +18,7 @@ def home(request):
         form = ContactForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            form.save()
+            form.save() 
             # redirect to a new URL:
             return HttpResponseRedirect(reverse('thanks',))
 

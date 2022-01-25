@@ -146,34 +146,33 @@
 			<!-- section title -->
 			<h2 class="section-title wow fadeInUp" style="color: black;">Latest Post</h2>
 
-
+      {% if tag %}
+          <h2>Posts tagged with "{{ tag.name }}"</h2>
+      {% endif %}
 
 			<div class="row blog-wrapper">
 
-                {% for post in page_obj %}
-
-				<div>
-
-        </div>
+        {% for post in page_obj %}
 				<div class="col-md-4 " style="margin-top:10px">
 					<!-- blog item -->
 					<div class="blog-item rounded bg-white shadow-dark wow fadeIn">
 						<div class="thumb">
 							{% for category_post in post.categories.all %}
-                            <a href="{% url 'blog_category' category_post.slug %}">
+                <a href="{% url 'blog_category' category_post.name %}">
 								<span class="category">{{ category_post.name }}</span>
 							</a>
 							{% endfor %}
-                            <a href="{% url 'blog_detail' post.pk %}">
+                <a href="{{ post.get_absolute_url }}">
 								<img src="{{ post.image.url }}" alt="blog-title" />
 							</a>
 						</div>
 						<div class="details">
-							<h4 class="my-0 title"><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h4>
+							<h4 class="my-0 title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
 
 							<ul class="list-inline">
-								<li class="list-inline-item"><i class="icofont-user"></i> {{post.author.first_name }}</li>
-								<li class="list-inline-item"><i class="icofont-clock-time"></i> {{ post.created_on | timesince }}</li>
+                <li class="list-inline-item"><i class="icofont-tags"></i>{{ post.tags.all|join:", " }}</li>
+								<li class="list-inline-item"><i class="icofont-user"></i> {{post.author }}</li>
+								<li class="list-inline-item"><i class="icofont-clock-time"></i> {{ post.publish | timesince }}</li>
 
 								<li class="list-inline-item"><i class="icofont-eye"></i></i> {{ post.visit_num }}</li>
 
@@ -192,26 +191,11 @@
 
 			</div>
 
-      <div class="pagination" style="margin-top:30px; margin-left:20px">
-                <span class="step-links">
-                   {% if page_obj.has_previous %}
-                       <a href="?page=1">&laquo; first</a>
-                       <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-                   {% endif %}
-
-                        <span class="current">
-                               page {{ page_obj.number }}, of {{ page_obj.paginator.num_pages }}
-                        </span>
-
-                    {% if page_obj.has_next %}
-                       <a href="?page={{ page_obj.next_page_number }}">Next</a>
-                       <a href="?page={{ page_obj.paginator.num_pages }}">End &raquo;</a>
-                    {% endif %}
-                </span>
-        </div>
 		</div>
 
 	</section>
+
+  {% include "pagination.html" with page_number=page_obj %}
 
  <div class="spacer" data-height="96"></div>
 
