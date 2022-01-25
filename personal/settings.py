@@ -42,7 +42,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'f^v0$q1l)3e*36&f$ctpu_lki)ou2v
 # DEBUG = True
 
 
-DEBUG = int(os.environ.get("DEBUG", default=1))
+DEBUG = int(os.environ.get("DEBUG", default=0))
 
 # ALLOWED_HOSTS = ['https://sbmagar.herokuapp.com/', '127.0.0.1', 'localhost']
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(' ')
@@ -113,8 +113,8 @@ DATABASES = {
         'NAME': os.environ.get("POSTGRES_DB", os.path.join(BASE_DIR, "db.sqlite3")),
         'USER': os.environ.get("POSTGRES_USER", "sagar"),
         'PASSWORD': os.environ.get("POSTGRES_PASSWORD", "password"),
-        # 'HOST': os.environ.get("POSTGRES_HOST", "localhost"),
-        'HOST': os.environ.get("localhost"),
+        'HOST': os.environ.get("POSTGRES_HOST", "localhost"),
+        # 'HOST': os.environ.get("localhost"),
         'PORT': os.environ.get("POSTGRES_PORT", "5432"),
 
     }
