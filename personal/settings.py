@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'cloudinary_storage',
     'taggit',
+    'django.contrib.sitemaps',
 
 ]
 

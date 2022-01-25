@@ -83,7 +83,12 @@ def blog_detail(request, year, month, day, post):
             new_comment.post = post
             # save
             new_comment.save()
-            return HttpResponseRedirect(reverse('blog_detail', args=(post.slug, post.year, post.month, post.day)))
+            return HttpResponseRedirect(reverse('blog_detail', args={year:post.publish.year,
+                                                                     month:post.publish.month,
+                                                                     day:post.publish.day,
+                                                                     post:post.slug,
+                                                                    }))
+    
     else:
         comment_form = CommentForm()
 

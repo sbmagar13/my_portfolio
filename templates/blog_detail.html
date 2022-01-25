@@ -1,3 +1,4 @@
+{% load blogs_tags %}
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -169,31 +170,17 @@
         <!-- Title -->
         <h1 class="mt-4">{{ post.title }}</h1>
 
-        <!-- Author -->
-        <p class="lead">
-          Published on {{ post.publish }} by:
-          <a href="/" style="color: black;">{{ post.author}}</a>
-        </p>
-
-        <hr>
-
         <!-- Date/Time -->
-        <p>Posted on {{ post.created_on }}, {{ post.visit_num }}</p>
+        <p>Posted on {{ post.created_on }}, {{ post.visit_num }}, by:
+          <a href="/" style="color: black;">{{ post.author}}</a></p>
 
         <hr>
-
-        
 
         <!-- Preview Image -->
         <div class="card-body">
         <img class="img-fluid rounded" src="{{ post.image.url }}" alt="">
          </div>
         <hr>
-
-
-
-
-
 
         <!-- Post Content -->
 
@@ -369,9 +356,9 @@
           
           </div>
 
-          <!-- Side Widget -->
+        <!-- Side Widget -->
           <div class="card-body">
-            <h5 class="card-header">Similar contents</h5>
+            <h5 class="card-header">Similar posts</h5>
           
             <div class="card-body">
               <p class="similar-posts"> 
@@ -383,6 +370,35 @@
               </p>
             </div>
           
+          </div>
+
+        <!-- Side Widget -->
+          <div class="card-body">
+            <h5 class="card-header">Latest posts</h5>
+          
+            <div class="card-body">
+              <p class="latest-posts"> 
+                {% show_latest_posts 3 %}
+              </p>
+              <p><a href="{% url 'post_feed' %}">Subscribe to my RSS feed</a></p>
+            </div>
+          
+          </div>
+
+        <!-- Side Widget -->
+          <div class="card-body">
+            <h5 class="card-header">Most commented posts</h5>
+          
+            <div class="card-body">
+              <p class="latest-posts"> 
+                {% get_most_commented_posts as most_commented_posts %}
+                <ul>
+                    {% for post in most_commented_posts %}
+                    <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+                    {% endfor %}
+                </ul>
+              </p>
+            </div>
           </div>
 
       </div>
