@@ -1,4 +1,4 @@
-asgiref==3.2.5
+asgiref
 astroid==2.3.3
 certifi==2021.10.8
 charset-normalizer==2.0.10
