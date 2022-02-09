@@ -12,6 +12,6 @@ urlpatterns = [
     re_path(r'^tag/(?P<tag_slug>[-\w]+)/$', views.blog_index, name='blog_index_list_by_tag'),
     re_path(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<post>[-\w]+)/$', views.blog_detail, name='blog_detail'),
 
-    path('feed/', LatestPostsFeeds(), name='post_feed')
+    path('feed/', LatestPostsFeeds(), name='post_feed'),
 
 ]

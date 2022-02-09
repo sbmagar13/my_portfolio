@@ -2,9 +2,11 @@ from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.utils.html import strip_tags
 
 from django.utils import timezone
 from taggit.managers import TaggableManager
+
 
 class PublishedManager(models.Manager):
     def ger_queryset(self):
@@ -75,4 +77,14 @@ class Comment(models.Model):
         ordering = ('created',)
 
     def __str__(self):
-        return 'Comment by {}'.format(self.name)
+        return f'{strip_tags(self.comment[0:10])}... by {self.name.firstname} at {self.created}'
+
+
+# class contact_us(models.Model):
+#     id = models.AutoField(primary_key=True)
+#     name = models.CharField(max_length=100)
+#     email = models.CharField(max_length=200)
+#     content = models.CharField(max_length=1200)
+
+#     def __str__(self):
+#         return f"Name: {self.name} || Email: {self.email}"

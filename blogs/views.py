@@ -1,17 +1,16 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.test import tag
 from .forms import CommentForm
 from django.urls import reverse
-from blogs.models import Post, Category_post, Comment
-from django.views.generic import ListView
+from blogs.models import Post, Comment
 from django.db.models import Q
 
 import random
 from taggit.models import Tag
 from django.db.models import Count
+from django.contrib import messages
 
 
 def blog_index(request, tag_slug=None):
@@ -83,6 +82,8 @@ def blog_detail(request, year, month, day, post):
             new_comment.post = post
             # save
             new_comment.save()
+            messages.success(request, "Comment successfully posted!")
+
             return HttpResponseRedirect(reverse('blog_detail', args={year:post.publish.year,
                                                                      month:post.publish.month,
                                                                      day:post.publish.day,
