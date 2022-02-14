@@ -1271,6 +1271,8 @@ select.portfolio-filter-mobile {
 /*                      BLOG
 /*=================================================================*/
 .blog-item {
+  height: 400px;
+  margin-top: 10px;
   overflow: hidden;
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
@@ -1292,6 +1294,7 @@ select.portfolio-filter-mobile {
 }
 .blog-item .thumb img {
   width: 100%;
+  object-fit: cover;
   height: 100%;
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
