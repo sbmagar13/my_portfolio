@@ -455,7 +455,11 @@ select.portfolio-filter-mobile {
 	.thumb {
 		position: relative;
 		overflow: hidden;
+		width: 210px;
+		height: 200px;
 		img {
+			max-height: 100%;
+			max-width: 100%;
 			-webkit-transform: scale(1);
 		    -ms-transform: scale(1);
 		    transform: scale(1);
@@ -463,6 +467,8 @@ select.portfolio-filter-mobile {
 		}
 		&:hover {
 			img {
+				max-width: 100%;
+				max-height: 100%;
 				-webkit-transform: scale(1.1);
 			    -ms-transform: scale(1.1);
 			    transform: scale(1.1);
