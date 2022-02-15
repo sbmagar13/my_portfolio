@@ -232,18 +232,16 @@
         <div class="card-body">
         {% load crispy_forms_tags %}
         <!-- Dynamic Comments-->
-        <!-- Comments Form -->
+        
+          <!-- Comments Form -->
+          <h5>Write your comment</h5>
 
-                  <h5>Write your comment</h5>
-
-                     <form action="" method="post" style="margin-top: 1.3em">
-                           {{ comment_form | crispy }}
-                           {% csrf_token %}
-                         <button type="submit" class="btn btn-default">submit</button>
-
-                      </form>
-
-          </div>
+          <form action="" method="post" style="margin-top: 1.3em">
+                {{ comment_form | crispy }}
+                {% csrf_token %}
+              <button type="submit" class="btn btn-default">submit</button>
+          </form>
+        </div>
 
         <div class="card-body">
         <!-- Comment with nested comments -->
@@ -253,15 +251,28 @@
 
 
         {% for comment in comments %}
-          <div class="media mb-4" style="margin-top:40px">
+          <!-- <div class="media mb-4" style="margin-top:40px">
             <img class="d-flex mr-3 rounded-circle" src="/static/images/user_img.png" width="70px" height="70px" alt="">
             <div class="media-body">
               <p class="mt-0" style="font-weight: bold;">Comment by {{ comment.name }}: {{ comment.created }}</p>
               {{ comment.body|linebreaks }}
             </div>
-          </div>
+          </div> -->
 
-       {% empty %}
+            <div class="card p-4"> 
+              <div class="row">
+                <div class="media-body mb-4" style="margin-top:10px">
+                  <img class="rounded-circle mr-4" src="/static/images/user_img.png" width="70px" height="70px" alt="user-avatar">
+                  <strong>{{ comment.name }} </strong>
+                </div>
+                <div class="col-12">
+                  <p class="m-1 mt-3">{{ comment.body|linebreaks }}</p>
+                  <p class="text-right text-muted"><small>{{ comment.created }}</small></p>
+                </div>
+              </div>
+            </div>
+
+        {% empty %}
          <div class="card-body">
           <h3>No comments yet. &#128512;</h3>
          </div>
