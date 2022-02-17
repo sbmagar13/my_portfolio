@@ -715,7 +715,7 @@
 						</div>
 						<div class="details">
 							<h4 class="my-0 title"><a href="{{ post.get_absolute_url }}">{{ post.title | truncatechars:25 }}</a></h4>
-							<p class="my-0 title"><a href="{% url 'work_detail' post.pk %}">{{ post.short_desciption | truncatechars:20 }}</a></p>
+							<p class="my-0 title"><a href="{% url 'blog_detail' post.pk %}">{{ post.short_desciption | truncatechars:20 }}</a></p>
 							<ul class="list-inline">
 								<li class="list-inline-item"><i class="icofont-tags"></i>{{ post.tags.all|join:", " | truncatechars:20 }}</li>
 								<li class="list-inline-item"><i class="icofont-user"></i> {{post.author }}</li>
