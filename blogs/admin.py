@@ -2,6 +2,7 @@ from django.contrib import admin
 from blogs.models import Post, Category_post, Comment
 from django_summernote.admin import SummernoteModelAdmin
 # Register your models here.
+
 class PostAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
     list_display = ('title', 'slug', 'short_desciption', 'status','created_on', 'publish', 'author')
@@ -11,7 +12,6 @@ class PostAdmin(SummernoteModelAdmin):
     raw_id_fields = ('author',)
     date_hierarchy = 'publish'
     ordering = ('status', 'publish')
-
 
 
 class CommentAdmin(admin.ModelAdmin):
@@ -24,4 +24,3 @@ class CommentAdmin(admin.ModelAdmin):
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(Category_post)
-
