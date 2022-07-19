@@ -1859,7 +1859,7 @@ body.dark footer.footer {
 }
 
 .timeline .timeline-container {
-  padding-left: 50px;
+  padding-left: 20px;
   margin-bottom: 50px;
   position: relative;
   background-color: inherit;
@@ -1867,6 +1867,8 @@ body.dark footer.footer {
 }
 .timeline .timeline-container:last-of-type {
   margin-bottom: 0;
+  height: 400px;
+  overflow-y: scroll;
 }
 
 .timeline.edu .timeline-container::after {

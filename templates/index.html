@@ -104,17 +104,31 @@
 						<div class="row">
 							<div class="col-md-6" style="color:#000000">
 								<!-- about text -->
-								<p style="text-align: justify">Sagar Budhathoki is a professional Python developer & an AI/ML enthusiast from Nepal. He has some experience in AI software development and also in DevOps, Sagar Budhathoki has specialized himself in Django(Python) and currently working as a DevOps.</p>
+								<p style="text-align: justify">I am a Python/DevOps Engineer. Skilled with hands-on experience in python frameworks, system programming, cloud computing, automating, optimizing mission-critical deployments in AWS, leveraging configuration management, CI/CD, and DevOps processes. Also an AI/ML enthusiast.
+								</p>
 								<div class="mt-3">
 									<a href="https://drive.google.com/file/d/1z1GaK8w6MMsuegaoyjrGWuAlrlNJDSnP/view" class="btn btn-default">Download Résumé</a>
 								</div>
 								<div class="spacer d-md-none d-lg-none" data-height="30"></div>
 							</div>
 							<div class="col-md-6">
+
 								<!-- skill item -->
 								<div class="skill-item">
 									<div class="skill-info clearfix">
-										<h4 class="float-left mb-3 mt-0"> Web Development</h4>
+										<h4 class="float-left mb-3 mt-0">DevOps|Cloud-native</h4>
+										<span class="float-right">60%</span>
+									</div>
+									<div class="progress">
+										<div class="progress-bar data-background" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" data-color="#6C6CE5">
+										</div>
+									</div>
+								</div>
+
+								<!-- skill item -->
+								<div class="skill-item">
+									<div class="skill-info clearfix">
+										<h4 class="float-left mb-3 mt-0">Development</h4>
 										<span class="float-right">45%</span>
 									</div>
 									<div class="progress">
@@ -135,18 +149,6 @@
 										</div>
 									</div>
 									<div class="spacer" data-height="20"></div>
-								</div>
-
-								<!-- skill item -->
-								<div class="skill-item">
-									<div class="skill-info clearfix">
-										<h4 class="float-left mb-3 mt-0">DevOps</h4>
-										<span class="float-right">60%</span>
-									</div>
-									<div class="progress">
-										<div class="progress-bar data-background" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" data-color="#6C6CE5">
-										</div>
-									</div>
 								</div>
 
 							</div>
@@ -265,7 +267,7 @@
 			</div>
 
 			<div class="mt-5 text-center">
-				<p class="mb-0">Looking for a developer? <a href="#contact">Click here</a> to contact me! 👋</p>
+				<p class="mb-0">Looking for a DevOps? <a href="#contact">Click here</a> to contact me! 👋. Or <a href="mailto:ail@budhathokisagar.com.np">email me</a>!</p>
 			</div>
 
 		</div>
@@ -296,12 +298,12 @@
 							<!-- timeline item -->
 							<div class="timeline-container wow fadeInUp">
 								<div class="content">
-									<span class="time">{{ experience.start_date|date:"M, Y" }} - {{ experience.end_date|date:"M, Y" }}</span>
+									<span class="time">{{ experience.start_month }}, {{ experience.start_year }} - {{ experience.end_date_value }}</span>
 									<h3 class="title">{{ experience.position }}</h3>
 									<h4 style="font-size:16px">{{ experience.name }}</h4>
 									<!-- {{ experience.description }} -->
 									<div id="previewContent-{{ forloop.revcounter }}">
-										<textarea >{{ experience.description }}</textarea>
+										<textarea>{{ experience.description }}</textarea>
 									</div>
 								</div>
 							</div>
@@ -326,7 +328,7 @@
 							<!-- timeline item -->
 							<div class="timeline-container wow fadeInUp">
 								<div class="content">
-									<span class="time">{{ experience.start_date|date:"M, Y" }} - {{ experience.end_date|date:"M, Y" }}</span>
+									<span class="time">{{ experience.start_month}}, {{ experience.start_year }} - {{ experience.end_date_value }}</span>
 									<h3 class="title">{{ experience.position }}</h3>
 									<h4 style="font-size:16px">{{ experience.name }}</h4>
 									<!-- {{ experience.description }} -->
