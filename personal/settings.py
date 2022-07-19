@@ -62,11 +62,13 @@ INSTALLED_APPS = [
     'psycopg2',
     'blogs',
     'works',
+    'experiences',
     'django_summernote',
     'cloudinary',
     'cloudinary_storage',
     'taggit',
     'django.contrib.sitemaps',
+    'mdeditor',
 
 ]
 
@@ -97,6 +99,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'experiences.context_processors.experience_processor',
             ],
         },
     },

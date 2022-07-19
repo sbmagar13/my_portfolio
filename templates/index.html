@@ -284,138 +284,66 @@
 			<div class="row">
 
 
-				<div class="col-md-6">
+			{% for experience in experiences %}
 
-					<!-- timeline wrapper -->
-					<div class="timeline bg-white rounded shadow-dark padding-30 overflow-hidden">
+				{% if not forloop.revcounter|divisibleby:2 %}
 
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp">
-							<div class="content">
-								<span class="time">2021, Feb - Present</span>
-								<h3 class="title">AI software developer(Python)</h3>
-								<h4 style="font-size:16px">VolgAI</h4>
-								<p style="color:#000000">
-									<ul style="color:#000000">
-										<li>Chatbot Development from scratch with RASA Stack(NLP)</li>
-										<li>Model Optimization, pipeline configurations, rasa-x integration.</li>
-										<li>chatbot frontend development</li>
-										<li>STT intgration with rasa chatbot.</li>
-										<li>Docker/docker-compose deployment, supervisord, nginx, postgres, rabbitmq, etc.</li>
-								  	</ul>
-								</p>
+					<div class="col-md-6">
 
+						<!-- timeline wrapper -->
+						<div class="timeline bg-white rounded shadow-dark padding-30 overflow-hidden">
+
+							<!-- timeline item -->
+							<div class="timeline-container wow fadeInUp">
+								<div class="content">
+									<span class="time">{{ experience.start_date|date:"M, Y" }} - {{ experience.end_date|date:"M, Y" }}</span>
+									<h3 class="title">{{ experience.position }}</h3>
+									<h4 style="font-size:16px">{{ experience.name }}</h4>
+									<!-- {{ experience.description }} -->
+									<div id="previewContent-{{ forloop.revcounter }}">
+										<textarea >{{ experience.description }}</textarea>
+									</div>
+								</div>
 							</div>
-						</div>
 
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp" data-wow-delay="0.3s">
-							<div class="content">
-								<span class="time">2020, Jan - 2020, Oct</span>
-								<h3 class="title">AI Research Engineer / Django Developer</h3>
-								<h4 style="font-size:16px">IBZ Networks Pvt. Ltd., Balaju</h4>
-								<p style="color:#000000">
-									<ul style="color:#000000">
-										<li>Developed fully functioning ffmpeg/live555 RTSP protocol ("Image process (CCTV, NVR) window app development")</li>
-										<li>Developed Sensor Operator Server UI with Django ("Black Ice Detection System") as a team project.</li>
-										<li>UDP Server, MariaDB for sensor database("Black Ice Detection System"), worked on decoding of sensors input data.</li>
-										<li>Worked on basics of Web Scraping, Model Development, Data Visualization etc.</li>
-								  	</ul>
-								</p>
-							</div>
-						</div>
+							<!-- main line -->
+							<span class="line"></span>
 
-						<div class="timeline-container wow fadeInUp" data-wow-delay="0.4s">
-							<div class="content">
-								<span class="time">2019, Feb - 2019, May</span>
-								<h3 class="title">Django Intern</h3>
-								<h4 style="font-size:16px">At ITDeurali Inc., Pokhara</h4>
-								<p style="color:#000000">Worked on backend RESTful API, CORS, CSRF, Token Authentication etc.</p>
-							</div>
 						</div>
-
-						<!-- main line -->
-						<span class="line"></span>
 
 					</div>
 
-				</div>
+				{% else %}
 
-				
+					<div class="col-md-6">
 
-				<div class="col-md-6">
+						<!-- responsive spacer -->
+						<div class="spacer d-md-none d-lg-none" data-height="30"></div>
 
-					<!-- responsive spacer -->
-					<div class="spacer d-md-none d-lg-none" data-height="30"></div>
+						<!-- timeline wrapper -->
+						<div class="timeline bg-white rounded shadow-dark padding-30 overflow-hidden">
 
-					<!-- timeline wrapper -->
-					<div class="timeline bg-white rounded shadow-dark padding-30 overflow-hidden">
-
-
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp" data-wow-delay="0.2s">
-							<div class="content">
-								<span class="time">2020, Oct - 2021, Jan</span>
-								<h3 class="title">AWS AI/ML Interestship(4-months program)</h3>
-
-								<h4 style="font-size:16px">Genese Cloud Academy</h4>
-								<ul style="color:#000000">
-									<li>Worked on various AWS services: EC2, S3, RedShift, dynamodb, SQLs, Load Balancer, Lambda, etc</li>
-									<li>Developed weatherbot using Lex</li>
-									<li>Other services: Rekognition, Polly, Apache MXNet, Pytorch, etc</li> 
-								</ul>
+							<!-- timeline item -->
+							<div class="timeline-container wow fadeInUp">
+								<div class="content">
+									<span class="time">{{ experience.start_date|date:"M, Y" }} - {{ experience.end_date|date:"M, Y" }}</span>
+									<h3 class="title">{{ experience.position }}</h3>
+									<h4 style="font-size:16px">{{ experience.name }}</h4>
+									<!-- {{ experience.description }} -->
+									<div id="previewContent-{{ forloop.revcounter }}">
+										<textarea >{{ experience.description }}</textarea>
+									</div>
+								</div>
 							</div>
-						</div>
+							<!-- main line -->
+							<span class="line"></span>
 
-						<div class="timeline-container wow fadeInUp" data-wow-delay="0.3s">
-							<div class="content">
-								<h3 class="title">Freelance/Personal works & experiences</h3>
-								<p style="color:#000000">
-									<ul style="color:#000000">
-										<li>Text-to-Image using Multimodal(CLIP+VQGAN) Architectures</li>
-										<li>Personal Portfolio with Django-postgres(this website) and various technologies</li>
-										<li>Web Scraping/Crawling plus automation (Germany-based contract project)</li>
-										<li>Freelanced as a DRF API developer</li>
-								  	</ul>
-								</p>							
-							</div>
 						</div>
-						
-
-						<div class="timeline-container wow fadeInUp" data-wow-delay="0.4s">
-							<div class="content">
-								<span class="time">2019, Feb - 2019, May</span>
-								<h3 class="title">College Major Project</h3>
-								<h4 style="font-size:16px">WRC, Pokhara</h4>
-								<p style="color:#000000">
-									<ul style="color:#000000">
-										<li>Developed GAN model to generate plausible image of flowers by giving input as text descriptions of flowers</li>
-										<li>Generator, Discriminator, text embeddings</li>
-										<li>Optimizations, Loss calculations, etc.</li>
-								  	</ul>
-								</p>							
-							</div>
-						</div>
-
-						<div class="timeline-container wow fadeInUp" data-wow-delay="0.5s">
-							<div class="content">
-								<span class="time">2018, Jun - 2018, May</span>
-								<h3 class="title">College Minor Project</h3>
-								<h4 style="font-size:16px">WRC, Pokhara</h4>
-								<p style="color:#000000">
-									<ul style="color:#000000">
-										<li>Online FIR System : A web based portal for online crime records management (Python-Django)</li>
-										<li>SQLite3, JS, HTML/CSS</li>
-								  	</ul>
-								</p>							
-							</div>
-						</div>
-						<!-- main line -->
-						<span class="line"></span>
 
 					</div>
 
-				</div>
+				{% endif %}
+			{% endfor %}
 
 			</div>
 
