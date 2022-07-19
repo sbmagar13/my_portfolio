@@ -12,7 +12,7 @@ def home(request):
     
     posts = Post.objects.filter(status=1).order_by('-created_on')[:3]
     works = Work.objects.filter(status=1).order_by('-created_on')[:3]
-    experiences = Employment.objects.all().order_by('-start_year')
+    experiences = Employment.objects.all().order_by('-start_year', '-end_year')
     
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
