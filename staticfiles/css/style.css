@@ -1006,11 +1006,13 @@ section.home.light .social-icons li a:hover {
 }
 
 /*=================================================================*/
-/*                      SERVICE
+/*                      TECHNICAL SKILLS
 /*=================================================================*/
 .service-box {
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
+  height: 350px;
+  overflow-y: auto;
   transform: translateY(0);
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
