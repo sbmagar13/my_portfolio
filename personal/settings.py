@@ -119,6 +119,7 @@ DATABASES = {
         'HOST': os.environ.get("POSTGRES_HOST", "localhost"),
         # 'HOST': os.environ.get("localhost"),
         'PORT': os.environ.get("POSTGRES_PORT", "5432"),
+        'CONN_MAX_AGE': 500
 
     }
 }
