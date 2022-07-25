@@ -42,7 +42,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'f^v0$q1l)3e*36&f$ctpu_lki)ou2v
 # DEBUG = True
 
 
-DEBUG = int(os.environ.get("DEBUG", default=0))
+DEBUG = int(os.environ.get("DEBUG", default=1))
 
 # ALLOWED_HOSTS = ['https://sbmagar.herokuapp.com/', '127.0.0.1', 'localhost']
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(' ')
