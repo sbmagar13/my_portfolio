@@ -141,7 +141,7 @@
                     <div class="dropdown">
                        <li class="nav-item"><a href="#blog" class="nav-link">More</a></li>
                            <div class="dropdown-content">
-                                  <li class="nav-item"><a href="/blogs/data-science" class="nav-link">Data Science</a></li>
+                                  <li class="nav-item"><a href="/blogs/data-science" class="nav-link">Data Sci.</a></li>
                                   <li class="nav-item"><a href="/blogs/nlp" class="nav-link">NLP</a></li>
                                   <li class="nav-item"><a href="/blogs/linuxify" class="nav-link">Linuxify</a></li>
                                   <li class="nav-item"><a href="/blogs/aws" class="nav-link">AWS</a></li>
@@ -184,8 +184,8 @@
 
         <!-- Post Content -->
 
-        <div>
-              {{ post.content | safe }}
+        <div id="blog-content">
+              <textarea>{{ post.content | safe }}</textarea>
         </div>
 
         <hr>

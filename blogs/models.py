@@ -6,6 +6,7 @@ from django.utils.html import strip_tags
 
 from django.utils import timezone
 from taggit.managers import TaggableManager
+from mdeditor.fields import MDTextField
 
 
 class PublishedManager(models.Manager):
@@ -32,7 +33,7 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     short_desciption = models.CharField(max_length=400, unique=True, blank=True, null=True)
     image = models.ImageField(upload_to='images/')
-    content = models.TextField()
+    content = MDTextField(verbose_name="Content", blank=True)
     publish = models.DateTimeField(default=timezone.now)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
