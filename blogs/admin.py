@@ -1,7 +1,12 @@
 from django.contrib import admin
 from blogs.models import Post, Category_post, Comment
 from django_summernote.admin import SummernoteModelAdmin
-# Register your models here.
+
+
+# class PostModelAdmin (admin.ModelAdmin):
+#     formfield_overrides = {
+#         models.TextField: {'widget': MDEditorWidget}
+#     }
 
 class PostAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
