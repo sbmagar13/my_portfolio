@@ -6,10 +6,9 @@ from blogs.models import Post
 from works.models import Work
 from portfolio.models import Contact
 from django.urls import reverse
-# Create your views here.
+
 
 def home(request):
-    
     posts = Post.objects.filter(status=1).order_by('-created_on')[:3]
     works = Work.objects.filter(status=1).order_by('-created_on')[:3]
     experiences = Employment.objects.all().order_by('-current_status', '-start_year', '-end_year')
@@ -29,7 +28,6 @@ def home(request):
         form = ContactForm()
 
     return render(request, 'index.html', {'form': form, 'posts': posts, 'works': works, 'experiences': experiences})
-
 
 def thanks(request):
     contacts = Contact.objects.all().order_by('-created')[:1]

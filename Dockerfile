@@ -34,5 +34,5 @@ RUN chmod -R 755 /vol/web
 
 #USER user
 
-
+CMD python manage.py makemigrations; python manage.py migrate;
 ENTRYPOINT ["/scripts/entrypoint.sh"]
