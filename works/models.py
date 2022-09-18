@@ -2,6 +2,8 @@ from django.db import models
 
 from django.contrib.auth.models import User
 
+from mdeditor.fields import MDTextField
+
 # Create your models here.
 STATUS = (
     (0, "Draft"),
@@ -22,9 +24,9 @@ class Work(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     short_desciption = models.CharField(max_length=400, blank=True, null=True)
     image = models.ImageField(blank=True, null=True, upload_to='images/')
-    content = models.TextField(blank=True, null=True)
-    live = models.TextField(blank=True, null=True)
-    downloadOrView = models.TextField(blank=True, null=True)
+    content = MDTextField(verbose_name="Content", blank=True)
+    live = MDTextField(verbose_name="Live", blank=True)
+    downloadOrView = MDTextField(verbose_name="downloadorView", blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     categories = models.ManyToManyField('Category_work', related_name='works')

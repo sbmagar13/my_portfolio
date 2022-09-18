@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
@@ -76,7 +77,6 @@
 	 background-color:#FFD15C!important;
 	 border-radius:4px!important;
  }
-
 
         </style>
         <!-- Safari and others -->
@@ -159,7 +159,9 @@
                 </div>
                 <hr>
                 <!-- Post Content -->
-                <div>{{ work.downloadOrView | safe }}</div>
+                <div id="work-content">
+                    <textarea>{{ work.content | safe }}</textarea>
+                </div>
             </div>
         </div>
         <!-- Sidebar Widgets Column -->
@@ -168,13 +170,19 @@
             <div class="card-body">
                 <h5 class="card-header">Project details...</h5>
                 <div class="card-body">
-                    <div class="row">{{ work.content | safe  }}</div>
+                    <div id="work-downloadview" class="row">
+                    <textarea>{{ work.downloadOrView | safe }}</textarea>
+                </div>
                 </div>
             </div>
             <!-- Side Widget -->
             <div class="card-body">
                 <h5 class="card-header">Project screenshot</h5>
-                <div class="card-body">{{ work.live | safe }}</div>
+                <div class="card-body">
+                    <div id="work-live" class="row">
+                        <textarea>{{ work.live }}</textarea>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -218,7 +226,35 @@
   $(function () {
       // content is the id of the <tag> you want to be render.
       // Refer to the link of the template shared with this answer.
-    editormd.markdownToHTML("blog-content", {
+    editormd.markdownToHTML("work-content", {
+          emoji           : true,
+          taskList        : true,
+        //   tex             : true,  
+          flowChart       : true,  
+          sequenceDiagram : true,
+          indentWithTabs  : false,
+      });
+  });
+</script>
+<script type="text/javascript">
+  $(function () {
+      // content is the id of the <tag> you want to be render.
+      // Refer to the link of the template shared with this answer.
+    editormd.markdownToHTML("work-live", {
+          emoji           : true,
+          taskList        : true,
+        //   tex             : true,  
+          flowChart       : true,  
+          sequenceDiagram : true,
+          indentWithTabs  : false,
+      });
+  });
+</script>
+<script type="text/javascript">
+  $(function () {
+      // content is the id of the <tag> you want to be render.
+      // Refer to the link of the template shared with this answer.
+    editormd.markdownToHTML("work-downloadview", {
           emoji           : true,
           taskList        : true,
         //   tex             : true,  
