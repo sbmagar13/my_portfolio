@@ -39,7 +39,7 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     categories = models.ManyToManyField('Category_post', related_name='posts')
     visit_num = models.PositiveIntegerField(default=0)
-
+    keywords = models.TextField(blank=False)
 
     # Adding custom manager
     objects = models.Manager() # The default manager
