@@ -25,7 +25,6 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 # Base url to serve media files
 MEDIA_URL = '/media/'
-
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIAFILES_DIRS = (os.path.join(BASE_DIR, "media"),)
@@ -176,8 +175,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
@@ -217,4 +216,37 @@ MDEDITOR_CONFIGS = {
         'language': 'en'  # zh / en / es 
     }
     
+}
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'mysite.log',
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers':['file'],
+            'propagate': True,
+            'level':'DEBUG',
+        },
+        'MYAPP': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+        },
+    }
 }
