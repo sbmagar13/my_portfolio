@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import django_heroku
-import dj_database_url
+# import django_heroku
+# import dj_database_url
 
 import cloudinary
 import cloudinary_storage
@@ -44,7 +44,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'f^v0$q1l)3e*36&f$ctpu_lki)ou2v
 DEBUG = int(os.environ.get("DEBUG", default=1))
 
 # ALLOWED_HOSTS = ['https://sbmagar.herokuapp.com/', '127.0.0.1', 'localhost']
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(' ')
+# ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(' ')
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -109,17 +110,30 @@ WSGI_APPLICATION = 'personal.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': os.environ.get("DB_ENGINE", "django.db.backends.sqlite3"),
+#         'NAME': os.environ.get("POSTGRES_DB", os.path.join(BASE_DIR, "db.sqlite3")),
+#         'USER': os.environ.get("POSTGRES_USER", "sagar"),
+#         'PASSWORD': os.environ.get("POSTGRES_PASSWORD", "password"),
+#         'HOST': os.environ.get("POSTGRES_HOST", "localhost"),
+#         # 'HOST': os.environ.get("localhost"),
+#         'PORT': os.environ.get("POSTGRES_PORT", "5432"),
+#         'CONN_MAX_AGE': 500
+#
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get("DB_ENGINE", "django.db.backends.sqlite3"),
-        'NAME': os.environ.get("POSTGRES_DB", os.path.join(BASE_DIR, "db.sqlite3")),
-        'USER': os.environ.get("POSTGRES_USER", "sagar"),
-        'PASSWORD': os.environ.get("POSTGRES_PASSWORD", "password"),
-        'HOST': os.environ.get("POSTGRES_HOST", "localhost"),
+        'ENGINE': "django.db.backends.mysql",
+        'NAME': "sbmagar$portfolio_db",
+        'USER': "sbmagar",
+        'PASSWORD': "3qeOjfBR4Em98FNZysWrUTIWhc",
+        'HOST': "sbmagar.mysql.pythonanywhere-services.com",
         # 'HOST': os.environ.get("localhost"),
-        'PORT': os.environ.get("POSTGRES_PORT", "5432"),
+        'PORT': 3306,
         'CONN_MAX_AGE': 500
-
     }
 }
 
@@ -178,8 +192,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 # MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
-# Activate Django-Heroku.
-django_heroku.settings(locals())
+# # Activate Django-Heroku.
+# django_heroku.settings(locals())
 
 # prod_db = dj_database_url.config(conn_max_age=500)
 # DATABASES['default'].update(prod_db)
@@ -198,7 +212,7 @@ MDEDITOR_CONFIGS = {
                     "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime",
                     "emoji", "html-entities", "pagebreak", "goto-line", "|",
                     "help", "info",
-                    "||", "preview", "watch", "fullscreen"],  # custom edit box toolbar 
+                    "||", "preview", "watch", "fullscreen"],  # custom edit box toolbar
         'upload_image_formats': ["jpg", "jpeg", "gif", "png", "bmp", "webp"],  # image upload format type
         'image_folder': 'editor',  # image save the folder name
         'theme': 'default',  # edit box theme, dark / default
@@ -213,9 +227,9 @@ MDEDITOR_CONFIGS = {
         'watch': True,  # Live preview
         'lineWrapping': False,  # lineWrapping
         'lineNumbers': False,  # lineNumbers
-        'language': 'en'  # zh / en / es 
+        'language': 'en'  # zh / en / es
     }
-    
+
 }
 
 LOGGING = {
