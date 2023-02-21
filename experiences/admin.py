@@ -10,8 +10,6 @@ class EmploymentAdmin(admin.ModelAdmin):
     exclude = ('end_date_value', 'created_on')
 
 
-    
-
 class EducationAdmin(admin.ModelAdmin):
     list_display = ('name', 'level')
     search_fields = ['name']

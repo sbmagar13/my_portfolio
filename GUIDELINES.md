@@ -8,9 +8,7 @@ PyMongo
 
 Flask
 
-
 ## Coding GuideLines
-
 
 ### Naming Conventions
 
@@ -32,25 +30,19 @@ Fields in Mongo Documents --> camelCase
 routes --> snake_case
 ```
 
-
 ### Note to the users
 
 Create an issue with a simple description. I will look into it :)
 
-
-
 ### Note to the Contributors and developers
 
 Create a separate branch for that issue
-
 
 ### Naming conventions for branches
 
 start with BUG-$SOMEBUG$ if it is a bug
 
 start with FEA-$SOMEFEATURE$ if it is a feature
-
-
 
 ### Commit naming convention
 

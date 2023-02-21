@@ -1,6 +1,5 @@
 FROM python:3.8.9-alpine as builder
 
-
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONNUNBUFFERED 1
 
@@ -12,8 +11,6 @@ RUN apk add jpeg-dev zlib-dev libjpeg
 RUN pip install --upgrade pip
 COPY ./requirements.txt .
 RUN pip wheel --no-cache-dir --no-deps --wheel-dir /wheels -r requirements.txt
-
-
 
 #### FINAL ####
 
@@ -28,7 +25,6 @@ COPY --from=builder ./wheels /wheels
 COPY --from=builder ./requirements.txt .
 RUN pip install --no-cache /wheels/*
 #RUN pip install -r requirements.txt
-
 
 COPY ./scripts /scripts
 RUN chmod +x /scripts/*

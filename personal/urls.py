@@ -37,16 +37,18 @@ sitemaps = {
 
 
 urlpatterns = [
-        path('admin/', admin.site.urls),
-        path('', include('portfolio.urls')),
-        path('blogs/', include('blogs.urls')),
-        path('works/', include('works.urls')),
-        path('summernote/', include('django_summernote.urls')),
-        path("ads.txt", RedirectView.as_view(url=staticfiles_storage.url("ads.txt")),),
+    path('admin/', admin.site.urls),
+    path('', include('portfolio.urls')),
+    path('blogs/', include('blogs.urls')),
+    path('works/', include('works.urls')),
+    path('roadmap/', include('roadmap.urls')),
+    path('summernote/', include('django_summernote.urls')),
+    path("ads.txt", RedirectView.as_view(
+        url=staticfiles_storage.url("ads.txt")),),
 
-        path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, 
-             name='django.contrib.sitemaps.views.sitemap'),
-        path('mdeditor/', include('mdeditor.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap'),
+    path('mdeditor/', include('mdeditor.urls')),
 ]
 
 urlpatterns.append(url(f'^{settings.MEDIA_URL.lstrip("/")}(?P<path>.*)$',
@@ -58,5 +60,7 @@ urlpatterns.append(url(f'^{settings.MEDIA_URL.lstrip("/")}(?P<path>.*)$',
 urlpatterns += staticfiles_urlpatterns()
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL,
+                          document_root=settings.STATIC_ROOT)

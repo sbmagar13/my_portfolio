@@ -1,6 +1,5 @@
 FROM python:3.8.9-alpine
 
-
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONNUNBUFFERED 1
 
@@ -34,5 +33,6 @@ RUN chmod -R 755 /vol/web
 
 #USER user
 
-CMD python manage.py makemigrations; python manage.py migrate;
+CMD python manage.py makemigrations
+python manage.py migrate
 ENTRYPOINT ["/scripts/entrypoint.sh"]

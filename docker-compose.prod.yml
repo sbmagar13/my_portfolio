@@ -1,54 +1,54 @@
-version: '3.5'
+version: "3.5"
 
 services:
-    app:
-        build:
-            context: .
-            dockerfile: Dockerfile.prod
-        command: gunicorn personal.wsgi:application --bind 0.0.0.0:8000
-        volumes:
-            - static_data:/vol/static
-            - media_data:/vol/media
-        expose:
-            - 8000
-        restart: always
-        env_file:
-            - .env.prod
-#        environment:
-#            - DB_HOST:app-db
-#            - DB_NAME:portfolio_db
-#            - DB_USER:sagar
-#            - DB_PASS:password
-        depends_on:
-            - app-db
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    command: gunicorn personal.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - static_data:/vol/static
+      - media_data:/vol/media
+    expose:
+      - 8000
+    restart: always
+    env_file:
+      - .env.prod
+    #        environment:
+    #            - DB_HOST:app-db
+    #            - DB_NAME:portfolio_db
+    #            - DB_USER:sagar
+    #            - DB_PASS:password
+    depends_on:
+      - app-db
 
-    app-db:
-        image: postgres:12-alpine
-        ports:
-            - "5432:5432"
-        restart: always
-        volumes:
-            - postgres_data:/var/lib/postgresql/data:rw
-        env_file:
-            - .env.prod
+  app-db:
+    image: postgres:12-alpine
+    ports:
+      - "5432:5432"
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data:rw
+    env_file:
+      - .env.prod
 
-#        environment:
-#            - POSTGRES_HOST_AUTH_METHOD=trust
-#            - POSTGRES_USER:sagar
-#            - POSTGRES_PASSWORD:password
-#            - POSTGRES_DB:portfolio_db
-#            - TZ:Asia/Kathmandu
+  #        environment:
+  #            - POSTGRES_HOST_AUTH_METHOD=trust
+  #            - POSTGRES_USER:sagar
+  #            - POSTGRES_PASSWORD:password
+  #            - POSTGRES_DB:portfolio_db
+  #            - TZ:Asia/Kathmandu
 
-    proxy:
-        build: ./proxy
-        volumes:
-            - static_data:/vol/static
-            - media_data:/vol/media
-        restart: always
-        ports:
-            - "8008:80"
-        depends_on:
-            - app
+  proxy:
+    build: ./proxy
+    volumes:
+      - static_data:/vol/static
+      - media_data:/vol/media
+    restart: always
+    ports:
+      - "8008:80"
+    depends_on:
+      - app
 
 #    redis:
 #        image: redis:latest
@@ -57,9 +57,8 @@ services:
 #        volumes:
 #            - redis_data:/data
 
-
 volumes:
-    static_data:
-    postgres_data:
-    media_data:
+  static_data:
+  postgres_data:
+  media_data:
 #    redis_data:

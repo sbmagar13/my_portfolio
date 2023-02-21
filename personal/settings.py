@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     'taggit',
     'django.contrib.sitemaps',
     'mdeditor',
+    'roadmap',
 
 ]
 
@@ -126,6 +127,16 @@ WSGI_APPLICATION = 'personal.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': "django.db.backends.sqlite3",
+        'NAME': "db.sqlite3",
+        'USER': "sagar",
+        'PASSWORD': "password",
+        'HOST': "localhost",
+        # 'HOST': os.environ.get("localhost"),
+        'PORT': "5432",
+        'CONN_MAX_AGE': 500
+    },
+    'pythonanywhere': {
         'ENGINE': "django.db.backends.mysql",
         'NAME': "sbmagar$portfolio_db",
         'USER': "sbmagar",
@@ -134,7 +145,7 @@ DATABASES = {
         # 'HOST': os.environ.get("localhost"),
         'PORT': 3306,
         'CONN_MAX_AGE': 500
-    }
+    },
 }
 
 # Password validation

@@ -20,8 +20,6 @@ COPY . .
 COPY ./requirements.txt .
 RUN pip wheel --no-cache-dir --no-deps --wheel-dir /usr/src/app/wheels -r requirements.txt
 
-
-
 ## FINAL ##
 
 FROM python:3.8.9-alpine
@@ -45,8 +43,6 @@ COPY --from=builder /usr/src/app/wheels /wheels
 COPY --from=builder /usr/src/app/requirements.txt .
 RUN pip install --no-cache /wheels/*
 
-
-
 # copy scripts
 COPY ./scripts /scripts
 
@@ -55,10 +51,8 @@ RUN chmod +x /scripts/*
 RUN mkdir -p /vol/web/media
 RUN mkdir -p /vol/web/static
 
-
 #RUN chown -R app:app /vol
 RUN chmod -R 755 /vol/web
-
 
 # chown all files to the app user
 #RUN chown -R app:app $APP_HOME
