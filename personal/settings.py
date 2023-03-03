@@ -127,15 +127,29 @@ WSGI_APPLICATION = 'personal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': "django.db.backends.mysql",
-        'NAME': "sbmagar$portfolio_db",
-        'USER': "sbmagar",
-        'PASSWORD': "3qeOjfBR4Em98FNZysWrUTIWhc",
-        'HOST': "sbmagar.mysql.pythonanywhere-services.com",
+        'NAME': "portfolio_db",
+        'USER': "sagar",
+        'PASSWORD': "P@ssw0rd",
+        'HOST': "localhost",
         # 'HOST': os.environ.get("localhost"),
         'PORT': 3306,
         'CONN_MAX_AGE': 500
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': "django.db.backends.mysql",
+#         'NAME': "sbmagar$portfolio_db",
+#         'USER': "sbmagar",
+#         'PASSWORD': "3qeOjfBR4Em98FNZysWrUTIWhc",
+#         'HOST': "sbmagar.mysql.pythonanywhere-services.com",
+#         # 'HOST': os.environ.get("localhost"),
+#         'PORT': 3306,
+#         'CONN_MAX_AGE': 500
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

@@ -9,7 +9,6 @@ Django==3.2
 django-cloudinary-storage==0.3.0
 django-crispy-forms==1.9.0
 django-endless-pagination==2.0
-django-heroku==0.3.1
 django-hitcount==1.3.1
 django-mdeditor==0.1.20
 django-summernote==0.8.11.6
@@ -20,8 +19,9 @@ idna==3.3
 isort==4.3.21
 lazy-object-proxy==1.4.3
 mccabe==0.6.1
+mysqlclient==2.1.1
 Pillow==9.0.0
-psycopg2==2.9.3
+psycopg2-binary==2.9.5
 pylint==2.4.4
 python-decouple==3.1
 pytz==2019.3
