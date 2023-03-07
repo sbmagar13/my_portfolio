@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import django_heroku
-import dj_database_url
+# import django_heroku
+# import dj_database_url
 
 import cloudinary
 import cloudinary_storage
