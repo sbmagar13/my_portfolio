@@ -1,0 +1,60 @@
+version: '3.5'
+
+services:
+    app:
+        build: .
+        command: python manage.py runserver 0.0.0.0:8000
+        volumes:
+            - static_data:/vol/web
+        ports:
+            - "8000:8000"
+        restart: always
+        env_file:
+            - ./.env
+#        environment:
+#            - DB_HOST:app-db
+#            - DB_NAME:portfolio_db
+#            - DB_USER:sagar
+#            - DB_PASS:password
+        depends_on:
+            - app-db
+
+    app-db:
+        image: postgres:12-alpine
+        ports:
+            - "5432:5432"
+        restart: always
+        volumes:
+            - postgres_data:/var/lib/postgresql/data:rw
+        env_file:
+            - .env
+
+#        environment:
+#            - POSTGRES_HOST_AUTH_METHOD=trust
+#            - POSTGRES_USER:sagar
+#            - POSTGRES_PASSWORD:password
+#            - POSTGRES_DB:portfolio_db
+#            - TZ:Asia/Kathmandu
+
+    proxy:
+        build: ./proxy
+        volumes:
+            - static_data:/vol/static
+        restart: always
+        ports:
+            - "8008:80"
+        depends_on:
+            - app
+
+#    redis:
+#        image: redis:latest
+#        ports:
+#            - "6379:6379"
+#        volumes:
+#            - redis_data:/data
+
+
+volumes:
+    static_data:
+    postgres_data:
+#    redis_data:
