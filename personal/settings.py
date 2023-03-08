@@ -45,7 +45,7 @@ DEBUG = int(os.environ.get("DEBUG", default=1))
 
 # ALLOWED_HOSTS = ['https://sbmagar.herokuapp.com/', '127.0.0.1', 'localhost']
 # ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(' ')
-ALLOWED_HOSTS = ['sbmagar.herokuapp.com']
+ALLOWED_HOSTS = ['sbmagar.herokuapp.com', 'https://budhathokisagar.com.np/', 'budhathokisagar.com.np']
 
 COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 
