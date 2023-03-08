@@ -47,6 +47,7 @@ DEBUG = int(os.environ.get("DEBUG", default=1))
 # ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(' ')
 ALLOWED_HOSTS = ['sbmagar.herokuapp.com']
 
+COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 
 # Application definition
 
