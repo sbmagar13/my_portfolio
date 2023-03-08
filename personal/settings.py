@@ -11,11 +11,13 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-# import django_heroku
+import django_heroku
 # import dj_database_url
 
 import cloudinary
 import cloudinary_storage
+
+django_heroku.settings(locals())
 
 from decouple import config
 
@@ -47,7 +49,6 @@ DEBUG = int(os.environ.get("DEBUG", default=1))
 # ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(' ')
 ALLOWED_HOSTS = ['sbmagar.herokuapp.com', 'https://budhathokisagar.com.np/', 'budhathokisagar.com.np']
 
-COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 
 # Application definition
 
