@@ -81,7 +81,7 @@ class Comment(models.Model):
         ordering = ('created',)
 
     def __str__(self):
-        return f'{strip_tags(self.body[0:10])}... by {self.name} at {self.created}'
+        return f'{strip_tags(self.body[0:30])}... by {self.name} at {self.created.day} {self.created.month}, {self.created.year}'
 
 
 # class contact_us(models.Model):
