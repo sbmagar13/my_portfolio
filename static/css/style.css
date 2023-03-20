@@ -50,7 +50,7 @@ body {
   color: #5E5C7F;
   background-color: #F9F9FF;
   font-family: "Rubik", sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.7;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -102,7 +102,7 @@ h3 {
 }
 
 h4 {
-  font-size: 18px;
+  font-size: 15px;
 }
 
 a {
@@ -1273,7 +1273,7 @@ select.portfolio-filter-mobile {
 /*                      BLOG
 /*=================================================================*/
 .blog-item {
-  height: 340px;
+  height: 350px;
   margin-top: 10px;
   overflow: hidden;
   -webkit-transform: translateY(0);
@@ -1328,7 +1328,7 @@ select.portfolio-filter-mobile {
   padding: 20px;
 }
 .blog-item .details h4.title {
-  font-size: 12px;
+  font-size: 15px;
 }
 .blog-item .details h4.title a {
   color: #353353;
