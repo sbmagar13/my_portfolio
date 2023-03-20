@@ -1273,7 +1273,7 @@ select.portfolio-filter-mobile {
 /*                      BLOG
 /*=================================================================*/
 .blog-item {
-  height: 400px;
+  /* height: 400px; */
   margin-top: 10px;
   overflow: hidden;
   -webkit-transform: translateY(0);
@@ -1328,7 +1328,7 @@ select.portfolio-filter-mobile {
   padding: 20px;
 }
 .blog-item .details h4.title {
-  font-size: 20px;
+  font-size: 12px;
 }
 .blog-item .details h4.title a {
   color: #353353;

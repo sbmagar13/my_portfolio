@@ -82,14 +82,16 @@ body {
 
 ul, li {
   list-style: none outside none;
-  margin: 0; }
+  margin: 0;
+  font-size: 0.8rem; }
 
 iframe {
   border: none; }
 
 ul, li {
   list-style: none outside none;
-  margin: 0; }
+  margin: 0;
+  font-size: 0.8rem; }
 
 a {
   color: #D1335B;
@@ -105,10 +107,10 @@ p {
   font-size: 1rem; }
   @media (min-width: 601px) {
     p {
-      font-size: 1rem; } }
+      font-size: 0.8rem; } }
   @media (min-width: 1400px) {
     p {
-      font-size: 1rem; } }
+      font-size: 0.8rem; } }
 
 /* 1 Components */
 /* 1.1 form, button, input */
