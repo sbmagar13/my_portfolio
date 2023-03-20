@@ -212,6 +212,9 @@
                                         <h4 class="my-0 title">
                                             <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
                                         </h4>
+                                        <p class="my-0 title">
+                                            <a href="{{ post.get_absolute_url }}">{{ post.short_desciption | truncatechars:70 }}</a>
+                                        </p>
                                         <ul class="list-inline">
                                             <li class="list-inline-item">
                                                 <i class="icofont-tags"></i>{{ post.tags.all|join:", " }}

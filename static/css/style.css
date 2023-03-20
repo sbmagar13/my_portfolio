@@ -1273,7 +1273,7 @@ select.portfolio-filter-mobile {
 /*                      BLOG
 /*=================================================================*/
 .blog-item {
-  height: 350px;
+  height: 370px;
   margin-top: 10px;
   overflow: hidden;
   -webkit-transform: translateY(0);
