@@ -22,7 +22,7 @@ def blog_index(request, tag_slug=None):
         tag = get_object_or_404(Tag, slug=tag_slug)
         posts = posts.filter(tags__in=[tag])
 
-    paginator = Paginator(posts, 9)
+    paginator = Paginator(posts, 15)
     page_number = request.GET.get('page')
     try:
         page_obj = paginator.page(page_number)
