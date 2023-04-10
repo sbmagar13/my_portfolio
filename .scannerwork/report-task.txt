@@ -1,0 +1,6 @@
+projectKey=my_portfolio
+serverUrl=http://10.10.0.69:6969/sonarqube
+serverVersion=9.0.1.46107
+dashboardUrl=http://10.10.0.69:6969/sonarqube/dashboard?id=my_portfolio
+ceTaskId=AYcsoHiOWEupQMq5vFbD
+ceTaskUrl=http://10.10.0.69:6969/sonarqube/api/ce/task?id=AYcsoHiOWEupQMq5vFbD
