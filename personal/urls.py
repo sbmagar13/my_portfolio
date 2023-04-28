@@ -30,6 +30,8 @@ from django.contrib.sitemaps.views import sitemap
 from blogs.models import Post
 from blogs.sitemaps import PostSitemap
 
+admin.site.site_header = 'Admin Panel'
+admin.site.index_title = 'App Administration'
 
 sitemaps = {
     'posts': PostSitemap,
