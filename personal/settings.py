@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 # import django_heroku
 # import dj_database_url
 
@@ -37,16 +40,16 @@ MEDIAFILES_DIRS = (os.path.join(BASE_DIR, "media"),)
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'f^v0$q1l)3e*36&f$ctpu_lki)ou2v(54d&ir3d3ac3^yfq0r9'
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'f^v0$q1l)3e*36&f$ctpu_lki)ou2v(54d&ir3d3ac3^yfq0r9')
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'f^v0$q1l)3e*36&f$ctpu_lki)ou2v(54d&ir3d3ac3^yfq0r9')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
 
-DEBUG = int(os.environ.get("DEBUG", default=1))
+DEBUG = int(os.getenv("DEBUG", default=1))
 
 # ALLOWED_HOSTS = ['https://sbmagar.herokuapp.com/', '127.0.0.1', 'localhost']
-# ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(' ')
+# ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '').split(' ')
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'sbmagar.herokuapp.com', 'https://budhathokisagar.com.np/', 'budhathokisagar.com.np']
 
 
@@ -114,16 +117,27 @@ WSGI_APPLICATION = 'personal.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get("DB_ENGINE", "django.db.backends.sqlite3"),
-        'NAME': os.environ.get("POSTGRES_DB", os.path.join(BASE_DIR, "db.sqlite3")),
-        'USER': os.environ.get("POSTGRES_USER", "sagar"),
-        'PASSWORD': os.environ.get("POSTGRES_PASSWORD", "password"),
-        'HOST': os.environ.get("POSTGRES_HOST", "localhost"),
-        # 'HOST': os.environ.get("localhost"),
-        'PORT': os.environ.get("POSTGRES_PORT", "5432"),
+        'ENGINE': os.getenv("DB_ENGINE", "django.db.backends.sqlite3"),
+        'NAME': os.getenv("POSTGRES_DB", os.path.join(BASE_DIR, "db.sqlite3")),
+        'USER': os.getenv("POSTGRES_USER", "sagar"),
+        'PASSWORD': os.getenv("POSTGRES_PASSWORD", "password"),
+        'HOST': os.getenv("POSTGRES_HOST", "localhost"),
+        # 'HOST': os.getenv("localhost"),
+        'PORT': os.getenv("POSTGRES_PORT", "5432"),
         'CONN_MAX_AGE': 500
 
     }
+    # 'default': {
+    #     'ENGINE': os.getenv("DB_ENGINE"),
+    #     'NAME': os.getenv("POSTGRES_DB"),
+    #     'USER': os.getenv("POSTGRES_USER"),
+    #     'PASSWORD': os.getenv("POSTGRES_PASSWORD"),
+    #     'HOST': os.getenv("POSTGRES_HOST"),
+    #     # 'HOST': os.getenv("localhost"),
+    #     'PORT': os.getenv("POSTGRES_PORT"),
+    #     'CONN_MAX_AGE': 500
+
+    # }
 }
 
 # DATABASES = {
@@ -133,7 +147,7 @@ DATABASES = {
 #         'USER': "sagar",
 #         'PASSWORD': "P@ssw0rd",
 #         'HOST': "localhost",
-#         # 'HOST': os.environ.get("localhost"),
+#         # 'HOST': os.getenv("localhost"),
 #         'PORT': 3306,
 #         'CONN_MAX_AGE': 500
 #     }
@@ -147,7 +161,7 @@ DATABASES = {
 #         'USER': "sbmagar",
 #         'PASSWORD': "3qeOjfBR4Em98FNZysWrUTIWhc",
 #         'HOST': "sbmagar.mysql.pythonanywhere-services.com",
-#         # 'HOST': os.environ.get("localhost"),
+#         # 'HOST': os.getenv("localhost"),
 #         'PORT': 3306,
 #         'CONN_MAX_AGE': 500
 #     }
@@ -282,4 +296,4 @@ LOGGING = {
 }
 
 DEBUG_PROPAGATE_EXCEPTIONS = True
-COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
+COMPRESS_ENABLED = os.getenv('COMPRESS_ENABLED', False)
