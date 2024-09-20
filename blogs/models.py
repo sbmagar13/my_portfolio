@@ -21,6 +21,7 @@ STATUS = (
 
 
 class Category_post(models.Model):
+    id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     verbose_name_plural = 'categories'
@@ -30,6 +31,7 @@ class Category_post(models.Model):
 
 
 class Post(models.Model):
+    id = models.BigAutoField(primary_key=True)
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True, unique_for_date='created_on')
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
@@ -65,6 +67,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
+    id = models.BigAutoField(primary_key=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=80)
     email = models.EmailField(max_length=200, blank=True)
