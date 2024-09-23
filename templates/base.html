@@ -200,44 +200,37 @@
                     <a class="navbar-brand" href="/">
                         <img src="/static/images/logo-sagar2.svg" alt="Sagar" />
                     </a>
-                    <button class="navbar-toggler navbar-toggler-right collapsed"
-                            aria-controls="navbarNavDropdown"
-                            aria-expanded="false"
-                            data-target="#navbarNavDropdown"
-                            data-toggle="collapse"
-                            type="button">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav ml-auto scrollspy">
                             <li class="nav-item">
-                                <a class="nav-link" href="#home">Home</a>
+                                <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="#home">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#about" class="nav-link">About</a>
+                                <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="#about">About</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#skills" class="nav-link">Skills</a>
+                                <a class="nav-link {% if request.path == '/skills/' %}active{% endif %}" href="#skills">Skills</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#experience" class="nav-link">Experiences</a>
+                                <a class="nav-link {% if request.path == '/experience/' %}active{% endif %}" href="#experience">Experiences</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#works" class="nav-link">Works</a>
+                                <a class="nav-link {% if request.path == '/works/' %}active{% endif %}" href="#works">Works</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#blog" class="nav-link">Blogs</a>
+                                <a class="nav-link {% if request.path == '/blog/' %}active{% endif %}" href="#blog">Blogs</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#contact" class="nav-link">Contact</a>
+                                <a class="nav-link {% if request.path == '/contact/' %}active{% endif %}" href="#contact">Contact</a>
                             </li>
                         </ul>
                     </div>
                 </nav>
             </div>
-        </header>
+        </header>        
         <script>
     $('.navbar-nav li a').on('click', function(){
         $('.navbar-collapse').collapse('hide');
