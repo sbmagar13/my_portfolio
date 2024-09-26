@@ -839,6 +839,10 @@ header.mobile-header-2 .site-logo img {
 /*=================================================================*/
 /*                      SECTIONS
 /*=================================================================*/
+main {
+  padding-top: 80px;
+}
+
 main.content {
   margin-left: 290px;
   -webkit-transition: all 0.3s ease-in-out;
